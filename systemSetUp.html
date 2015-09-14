@@ -50,11 +50,59 @@
           </p>
         </section>
 
-        <section id="commands">
-          <h2>
-            Commands
+
+        <section id= "git_flow">
+          <h2>Using Git Flow and Hub to handle issues
           </h2>
-             <table style="width:200%">
+          <table style = "width : 100%">
+            <tr>
+                <th>Task</th>
+               
+                <th>Commands</th>
+              </tr>
+            <tr>
+                <td>Install git flow on the terminal</td>
+                <td>$ apt-get install git-flow</td>
+            </tr>
+
+            <tr>
+              <td>Make it work locally</td>
+              <td>$ git flow init</td>
+            </tr>
+            <tr>
+              <td>Create a issue on github (e.g. Start blog application).</td>
+              <td>$ git flow feature start issue-1-start-blog-application</td>
+            </tr>
+            <tr>
+              <td>Start coding and then: </td>
+              <td>
+                <li>$ git commit -am "all things"</li>
+                <li>$ git flow feature publish issue-1-start-blog-application</li>
+              </td>
+            </tr>
+            <tr>
+              <td>Convert to a pull request</td>
+              <td>$ hub pull-request -i 1 -b develop</td>
+            </tr>
+            <tr>
+              <td>Send someone the pull-request link or @mention them</td>
+            </tr>
+            <tr>
+              <td>Once its got a +1 from the reviewer(s) and tests are passing on Travis
+              </td>
+              <td>
+                <li>$ git flow feature finish issue-1-start-blog-application</li>
+                <li>$ git push</li>
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section id= "git_commands">
+          <h2>
+            Git Commands
+          </h2>
+             <table style="width:100%">
               <tr>
                 <th>Git Task</th>
                
