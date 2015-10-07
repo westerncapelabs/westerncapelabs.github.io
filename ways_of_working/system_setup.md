@@ -1,5 +1,6 @@
 ---
 title: OS setup
+layout: ways-of-working
 ---
 
 ```
