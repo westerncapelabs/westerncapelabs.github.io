@@ -16,18 +16,18 @@ layout: ways-of-working
 
         <p>We use Git for software version control of all our projects. Github stores our code remotely. If you don't have a Github account, go make one now! If you have one already, make sure your email addresses are setup correctly - including adding your @westerncapelabs.com email address. Then do:</p>
 
-            <code>
-                sudo apt-get install git<br>
-                git config --global user.name _yourgithubusername_<br>
-                git config --global user.email _youremail_
-            </code>
+            <pre><code>
+                sudo apt-get install git
+                git config --global user.name yourgithubusername
+                git config --global user.email youremail
+            </code></pre>
 
         <p>You can read up on setting up SSH Authentication, but to get started quickly you can just use HTTPS Authentication. However, to prevent having to enter your username and password every time, use a credential helper to set how often you get password-prompted to every 24 hours (86400 seconds)</p>
 
-            <code>
-                git config --global credential.helper cache<br>
+            <pre><code>
+                git config --global credential.helper cache
                 git config --global credential.helper 'cache --timeout=86400'
-            </code>
+            </code></pre>
 
     <h3>Text Editor</h3>
 
