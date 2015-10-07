@@ -1,6 +1,5 @@
 ---
 title: OS setup
-layout: system_setup
 ---
 
 ```
