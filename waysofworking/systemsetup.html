@@ -22,16 +22,14 @@ brew install thepackageyouwanttoinstall  // mac
 
         <p>We use Git for software version control of all our projects. Github stores our code remotely. If you don't have a Github account, go make one now! If you have one already, make sure your email addresses are setup correctly - including adding your @westerncapelabs.com email address. Then do:</p>
 
-<pre><code>
-sudo apt-get install git
+<pre><code>sudo apt-get install git
 git config --global user.name yourgithubusername
 git config --global user.email youremail
 </code></pre>
 
         <p>You can read up on setting up SSH Authentication, but to get started quickly you can just use HTTPS Authentication. However, to prevent having to enter your username and password every time, use a credential helper to set how often you get password-prompted to every 24 hours (86400 seconds)</p>
 
-<pre><code>
-git config --global credential.helper cache
+<pre><code>git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=86400'
 </code></pre>
 
@@ -39,8 +37,7 @@ git config --global credential.helper 'cache --timeout=86400'
 
         <p>Git flow is integral to the way we work. Try the following installation:</p>
 
-<pre><code>
-sudo apt-get install git-flow
+<pre><code>sudo apt-get install git-flow
 // edit ~/.gitconfig to keep remote branches
 git config --global gitflow.feature.finish.keepremote true
 </code></pre>
@@ -49,8 +46,7 @@ git config --global gitflow.feature.finish.keepremote true
 
         <p>Hub allows for issue to pull-request conversion. Don't worry if you don't know what that means. Just try to install it</p>
 
-<pre><code>
-git clone https://github.com/github/hub.git
+<pre><code>git clone https://github.com/github/hub.git
 cd hub
 script/build
 mv ./hub /usr/local/bin  # move to somewhere in your PATH
@@ -67,8 +63,7 @@ mv ./hub /usr/local/bin  # move to somewhere in your PATH
 
         <p>Python may or may not be installed on your system, but that doesn't really matter, as you should be using <em>pyenv</em>! pyenv manages your Python versions, and with the extention <em>pyenv-virtualenv</em>, it also manages your virtual environments. More on virtual environments later. Install may happen like this:</p>
 
-<pre><code>
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+<pre><code>git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
@@ -83,8 +78,7 @@ exec $SHELL
 
         <p>Pip is Python's package (library) installer/manager. You will use this all the time.</p>
 
-<pre><code>
-sudo apt-get install python-pip
+<pre><code>sudo apt-get install python-pip
 </code></pre>
 
     <h3>Chrome</h3>
@@ -95,8 +89,7 @@ sudo apt-get install python-pip
 
         <h4>curl</h4>
 
-<pre><code>
-    sudo apt-get install curl
+<pre><code>sudo apt-get install curl
 </code></pre>
 
 
