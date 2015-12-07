@@ -19,8 +19,7 @@ brew install thepackageyouwanttoinstall  // mac
     <p>But you should probably read the latest install instructions online before doing any installation. If you do an installation and see any warning messages, stop and ask!</p>
 
 
-<h3>Git</h3>
-    <p><a href="https://help.github.com/articles/set-up-git/">Set up git</a></p>
+<h3><a href="/waysofworking/git.html"Git</a></h3>
     <p>We use Git for software version control of all our projects. Github stores our code remotely. If you don't have a Github account, go make one now! If you have one already, make sure your email addresses are setup correctly - including adding your @westerncapelabs.com email address. Then do:</p>
 
 <pre><code>sudo apt-get install git
@@ -28,7 +27,7 @@ git config --global user.name yourgithubusername
 git config --global user.email youremail
 </code></pre>
 
-    <p>You can read up on setting up SSH Authentication, but to get started quickly you can just use HTTPS Authentication. However, to prevent having to enter your username and password every time, use a credential helper to set how often you get password-prompted to every 24 hours (86400 seconds)</p>
+    <p>You can read up on setting up <a href="https://help.github.com/articles/set-up-git/">SSH Authentication</a>, but to get started quickly you can just use HTTPS Authentication. However, to prevent having to enter your username and password every time, use a credential helper to set how often you get password-prompted to every 24 hours (86400 seconds)</p>
 
 <pre><code>git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=86400'
@@ -82,21 +81,45 @@ exec $SHELL
 
 
 <h3>Chrome</h3>
-
     <p>While you should feel free to use any browser, we mostly use Chrome. We use the Chrome app Postman a lot, not sure if that's available in Firefox. If not just install Chrome. Chrome may ask you to add a repository to your OS - it's okay to do so.</p>
 
 
-<h3>Other things you may need to install</h3>
+<h3>Postgres</h3>
+    <p>Postgres is our most commonly used database. You'll most likely need it.</p>
+<pre><code>sudo apt-get install postgresql postgresql-contrib</code></pre>
 
-    <h4>curl</h4>
 
+<h3>Node and npm</h3>
+    <p>Node allows you to run Javascript code on your computer. There's more to it than that, but you can read up on that elsewhere. Npm is Node's package manager (like Pip for Python). You'll need this for creating Vumi USSD / SMS apps</p>
+
+<pre><code>// add the repo for nodejs
+curl -sL https://deb.nodesource.com/setup_0.10 | sudo -E bash -
+// if that doesn't work, you may need to install curl first - see further down
+sudo apt-get install nodejs
+// this adds npm as well
+</code></pre>
+
+
+<h3>Other things you may need / want to install</h3>
+
+<h4>curl</h4>
 <pre><code>sudo apt-get install curl
 </code></pre>
 
-    <h4>python-dev</h4>
+<h4>g++</h4>
+<p>g++ is a make compiler for node package installation</p>
+<pre><code>sudo apt-get install g++</code></pre>
 
+<h4>python-dev</h4>
 <pre><code>sudo apt-get install python-dev
 </code></pre>
+
+<h4>clipboard manager</h4>
+<p>Parcellite works pretty well, but is Linux only.</p>
+<pre><code>sudo apt-get install parcellite
+</code></pre>
+
+
 
 </section>
 
