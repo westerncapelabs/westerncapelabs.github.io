@@ -1,125 +1,50 @@
 ---
-title: OS setup
+title: Git flow without git-flow
 layout: ways-of-working
 ---
 
-<section id="system_setup">
+<section id="git_without_gitflow">
 
-<h1>System Setup</h1>
-    <p>You have to run Linux or OSX when working at Western Cape Labs. If you run Linux, we highly recommend that you use a Debian-based distribution like Ubuntu or Linux Mint - you're on your own if you use something else.</p>
+<h1>Using Git Without git-flow'</h1>
 
+<h2>Clone the code</h2>
+    <pre><code>$ git clone ...
+    </code></pre>
 
-<h2>Useful Software</h2>
-    <p>Below are really useful things to install on a new system with some basic Linux installation instructions. As installation procedures change over time you might have to do something a bit differently. Generally the easiest way to install things is from the OS available packages, with:</p>
+<h2>Start a new feature branch based on develop (git flow feature start)</h2>
+    <p>$ git checkout -b feature/issue-xx-abcd-efgh develop</p>
 
-<pre><code>sudo apt-get install thepackageyouwanttoinstall  // linux
-brew install thepackageyouwanttoinstall  // mac
-</code></pre>
+<h2>Do the first push to origin(git flow feature publish)</h2>
+    <pre><code>$ git add ...
+    $ git commit -m "..."
+    $ git push origin feature/issue-xx-abcd-efgh
+    </code></pre>
 
-    <p>But you should probably read the latest install instructions online before doing any installation. If you do an installation and see any warning messages, stop and ask!</p>
+<h2>Push additional code</h2>
+    <pre><code>$ git add ...
+    $ git commit -m "..."
+    $ git push</code></pre>
 
+<h2>Make pull request ...</h2>
 
-<h3><a href="/waysofworking/git.html"Git</a></h3>
-    <p>We use Git for software version control of all our projects. Github stores our code remotely. If you don't have a Github account, go make one now! If you have one already, make sure your email addresses are setup correctly - including adding your @westerncapelabs.com email address. Then do:</p>
-
-<pre><code>sudo apt-get install git
-git config --global user.name yourgithubusername
-git config --global user.email youremail
-</code></pre>
-
-    <p>You can read up on setting up <a href="https://help.github.com/articles/set-up-git/">SSH Authentication</a>, but to get started quickly you can just use HTTPS Authentication. However, to prevent having to enter your username and password every time, use a credential helper to set how often you get password-prompted to every 24 hours (86400 seconds)</p>
-
-<pre><code>git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=86400'
-</code></pre>
-
-
-<h3>Git Flow</h3>
-    <p>Git flow is integral to the way we work. Try the following installation:</p>
-
-<pre><code>sudo apt-get install git-flow
-// edit ~/.gitconfig to keep remote branches
-git config --global gitflow.feature.finish.keepremote true
-</code></pre>
-
-
-<h3>Hub</h3>
-    <p>Hub allows for issue to pull-request conversion. Don't worry if you don't know what that means. Just try to install it</p>
-
-<pre><code>git clone https://github.com/github/hub.git
-cd hub
-script/build
-mv ./hub /usr/local/bin  # move to somewhere in your PATH
-</code></pre>
-
-
-<h3>Text Editor</h3>
-    <p>Our two favourite editors are <strong>Sublime Text 3</strong> and <strong>Atom</strong>. Sublime Text is loved by just about everyone who has used it, but it 'kind of' costs $70, while Atom is free and is practically a clone of Sublime Text. Sublime Text 'kind of' costs $70 because you can try it for free forever, you just have to ignore a pop-up 'buy me!' message every now and then. Or convince Mike to buy it for you :) If you haven't been using Sublime Text yet, Atom is probably your better bet.</p>
-    <p>All that being said, feel free to use another editor if you prefer. But you should install something good (Nano won't cut it!)</p>
-
-<h3>Python</h3>
-    <p>Python is currently being used in two major versions: v2.x and v3.x. Mostly the differences don't really affect us, nowadays we tend to use v3.x on new projects.</p>
-    <p>Python may or may not be installed on your system, but that doesn't really matter, as you should be using <em>pyenv</em>! pyenv manages your Python versions, and with the extention <em>pyenv-virtualenv</em>, it also manages your virtual environments. More on virtual environments later. Install may happen like this:</p>
-
-<pre><code>git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-exec $SHELL
-
-git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-exec $SHELL
-</code></pre>
-
-
-<h3>Pip</h3>
-    <p>Pip is Python's package (library) installer/manager. You will use this all the time. If you're using pyenv, pip will be available within your virtual environment. If you're using your system's Python, you may need to install it:</p>
-
-<pre><code>sudo apt-get install python-pip
-</code></pre>
-
-
-<h3>Chrome</h3>
-    <p>While you should feel free to use any browser, we mostly use Chrome. We use the Chrome app Postman a lot, not sure if that's available in Firefox. If not just install Chrome. Chrome may ask you to add a repository to your OS - it's okay to do so.</p>
-
-
-<h3>Postgres</h3>
-    <p>Postgres is our most commonly used database. You'll most likely need it.</p>
-<pre><code>sudo apt-get install postgresql postgresql-contrib</code></pre>
-
-
-<h3>Node and npm</h3>
-    <p>Node allows you to run Javascript code on your computer. There's more to it than that, but you can read up on that elsewhere. Npm is Node's package manager (like Pip for Python). You'll need this for creating Vumi USSD / SMS apps</p>
-
-<pre><code>// add the repo for nodejs
-curl -sL https://deb.nodesource.com/setup_0.10 | sudo -E bash -
-// if that doesn't work, you may need to install curl first - see further down
-sudo apt-get install nodejs
-// this adds npm as well
-</code></pre>
-
-
-<h3>Other things you may need / want to install</h3>
-
-<h4>curl</h4>
-<pre><code>sudo apt-get install curl
-</code></pre>
-
-<h4>g++</h4>
-<p>g++ is a make compiler for node package installation</p>
-<pre><code>sudo apt-get install g++</code></pre>
-
-<h4>python-dev</h4>
-<pre><code>sudo apt-get install python-dev
-</code></pre>
-
-<h4>clipboard manager</h4>
-<p>Parcellite works pretty well, but is Linux only.</p>
-<pre><code>sudo apt-get install parcellite
-</code></pre>
-
-
+<h2>Land a feature in develop (once pull request has received a +1)</h2>
+    <p>(first make sure your local develop is up to date with origin)</p>
+    <pre><code>$ git checkout develop
+    $ git pull</code></pre>
+    <p>(then merge your updated local develop into the feature branch)</p>
+    <pre><code>$ git checkout feature/issue-xx-abcd-efgh
+    $ git merge develop
+    </code></pre>
+    <p>(if there are any merge conflicts, resolve them, then push the merge)</p>
+    <pre><code>$ git push
+    </code></pre>
+    <p>(now keep an eye on the website for travis being happy)
+    (once travis is happy, merge in the feature branch)</p>
+    <pre><code>$ git checkout develop
+    $ git merge --no-ff feature/issue-xx-abcd-efgh
+    $ git branch -d feature/issue-xx-abcd-efgh
+    </code></pre>
+    <p>(then push your local develop to origin)</p>
+    <pre><code>$ git push</code></pre>
 
 </section>
-
